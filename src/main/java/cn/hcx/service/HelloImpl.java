@@ -1,4 +1,6 @@
-package cn.hcx;
+package cn.hcx.service;
+
+import cn.hcx.service.Hello;
 
 public class HelloImpl implements Hello {
 

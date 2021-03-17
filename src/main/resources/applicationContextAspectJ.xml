@@ -7,8 +7,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd" >
 <!--    目标类-->
-    <bean id="helloImpl" class="cn.hcx.HelloImpl"></bean>
+    <bean id="helloImpl" class="cn.hcx.service.HelloImpl"></bean>
 <!--    切面-->
-    <bean id="MyAspectJ" class="cn.hcx.cal.MyAspectJ"></bean>
+    <bean id="MyAspectJ" class="cn.hcx.Aspect.MyAspectJ"></bean>
 <!--    aop编程-->
 </beans>

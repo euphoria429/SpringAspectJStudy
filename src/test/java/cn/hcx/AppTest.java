@@ -1,5 +1,6 @@
 package cn.hcx;
 
+import cn.hcx.service.Hello;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

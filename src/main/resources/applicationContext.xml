@@ -4,16 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--0.基于代理类的AOP实现-->
     <!--1.切面类-->
-    <bean name="AdviceBefore" class="cn.hcx.cal.AdviceBefore"/>
-    <bean name="AdviceAfter" class="cn.hcx.cal.AdviceAfter"/>
-    <bean name="AdviceAround" class="cn.hcx.cal.AdviceAround"/>
-    <bean name="AdviceThrow" class="cn.hcx.cal.AdviceThrow"/>
+    <bean name="AdviceBefore" class="cn.hcx.Aspect.AdviceBefore"/>
+    <bean name="AdviceAfter" class="cn.hcx.Aspect.AdviceAfter"/>
+    <bean name="AdviceAround" class="cn.hcx.Aspect.AdviceAround"/>
+    <bean name="AdviceThrow" class="cn.hcx.Aspect.AdviceThrow"/>
     <!--2.目标类-->
-    <bean name="HelloImpl" class="cn.hcx.HelloImpl"/>
+    <bean name="HelloImpl" class="cn.hcx.service.HelloImpl"/>
     <!--3.使用Spring代理工厂定义一个名称为helloProxy的代理对象-->
     <bean name="helloProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <!--3.1 指定代理实现的接口-->
-        <property name="proxyInterfaces" value="cn.hcx.Hello"/>
+        <property name="proxyInterfaces" value="cn.hcx.service.Hello"/>
         <!--3.2 指定目标对象-->
         <property name="target" ref="HelloImpl"/>
         <!--3.3 指定切面，植入通知-->
