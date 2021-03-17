@@ -8,7 +8,7 @@ public class MyAspectJ {
         System.out.println("前置通知，目标类是："+joinPoint.getTarget());
     }
     public void myAfterReturning(JoinPoint joinPoint){
-        System.out.println("后置通知")；
+        System.out.println("后置通知");
     }
     public Object myAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
         System.out.println("环绕开始：");

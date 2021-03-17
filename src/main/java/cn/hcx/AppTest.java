@@ -6,18 +6,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AppTest {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext
-                =new ClassPathXmlApplicationContext("applicationContext.xml");
-
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
         Hello hello = (Hello) applicationContext.getBean("helloProxy");
-        try
-        {
+        try {
             hello.sayhello();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    }
+}
 

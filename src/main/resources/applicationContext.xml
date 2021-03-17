@@ -2,18 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!--0.基于代理类的AOP实现-->
+    <!--1.切面类-->
     <bean name="AdviceBefore" class="cn.hcx.cal.AdviceBefore"/>
     <bean name="AdviceAfter" class="cn.hcx.cal.AdviceAfter"/>
     <bean name="AdviceAround" class="cn.hcx.cal.AdviceAround"/>
     <bean name="AdviceThrow" class="cn.hcx.cal.AdviceThrow"/>
-<!--    切面类-->
+    <!--2.目标类-->
     <bean name="HelloImpl" class="cn.hcx.HelloImpl"/>
-<!--    目标类的实现类-->
+    <!--3.使用Spring代理工厂定义一个名称为helloProxy的代理对象-->
     <bean name="helloProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-<!--        使用Spring代理工厂定义一个名称为helloProxy的代理对象-->
+        <!--3.1 指定代理实现的接口-->
         <property name="proxyInterfaces" value="cn.hcx.Hello"/>
+        <!--3.2 指定目标对象-->
         <property name="target" ref="HelloImpl"/>
+        <!--3.3 指定切面，植入通知-->
         <property name="interceptorNames" >
             <list>
                 <value>AdviceBefore</value>
@@ -22,5 +25,7 @@
                 <value>AdviceThrow</value>
             </list>
         </property>
+        <!--3.4 指定代理方式，true：使用cglib，false（默认）：使用jdk动态代理-->
+        <property name="proxyTargetClass" value="false"></property>
     </bean>
 </beans>
