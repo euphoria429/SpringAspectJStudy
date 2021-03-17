@@ -19,4 +19,11 @@ public class AppTest {
             ex.printStackTrace();
         }
     }
+
+    @Test
+    public void testAspectJ(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContextAspectJ.xml");
+        Hello hello =(Hello) applicationContext.getBean("helloImpl");
+        hello.sayhello();
+    }
 }
